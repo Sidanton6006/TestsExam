@@ -9,7 +9,6 @@ namespace Tests.Models
     public class Quiz
     {
         public int Id { get; set; }
-        public int Test { get; set; }
         public List<Ask> Asks { get; set; }
         public bool isQuizCorrect { get; set; }
         public bool isQuizComplited { get; set; }
