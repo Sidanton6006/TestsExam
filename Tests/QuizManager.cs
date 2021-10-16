@@ -12,6 +12,7 @@ namespace Tests
         static List<string> iterators = new List<string>() { "1) ", "2) ", "3) ", "4) " };
         public static void StartQuiz(Quiz quiz)
         {
+            //Console.WriteLine(quiz.Asks.Count());
             foreach (var ask in quiz.Asks)
             {
                 Console.WriteLine(ask.AskText);

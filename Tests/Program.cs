@@ -13,8 +13,12 @@ namespace Tests
     {
         static void Main(string[] args)
         {
-            TasksDbContext _ctx = new TasksDbContext();            
+            TasksDbContext _ctx = new TasksDbContext();
             QuizManager.StartQuiz(_ctx.Quizs.Where(q => q.Id == 1).FirstOrDefault());
+            //Console.WriteLine(_ctx.Answers.Count());
+            //Console.WriteLine(_ctx.Asks.Count());
+            //Console.WriteLine(_ctx.Quizs.Count());
+            //Console.WriteLine(_ctx.Tests.Count());
         }
     }
 }

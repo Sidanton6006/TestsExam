@@ -12,6 +12,6 @@ namespace Tests.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public string Author { get; set; }
-        public Quiz Quiz { get; set; }
+        public virtual Quiz Quiz { get; set; }
     }
 }

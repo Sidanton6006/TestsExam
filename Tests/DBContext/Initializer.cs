@@ -25,12 +25,16 @@ namespace Tests.DBContext
             _ctx.Answers.Add(answer4);
             _ctx.SaveChanges();
 
-            Ask ask1 = new Ask() { AskText = "Hello, ... ?", Answers = new List<Answer>() { answer1, answer2, answer3, answer4 }, isAnswerCorrect = false };
+            Ask ask1 = new Ask() { AskText = "Hello, ... ?", isAnswerCorrect = false };
+            ask1.Answers.AddRange(new List<Answer>(){ answer1, answer2, answer3, answer4});
+            _ctx.SaveChanges();
 
             _ctx.Asks.Add(ask1);
             _ctx.SaveChanges();
 
-            Quiz quiz1 = new Quiz() { Asks = new List<Ask>() { ask1 }, isQuizComplited = false, isQuizCorrect = false };
+            Quiz quiz1 = new Quiz() { isQuizComplited = false, isQuizCorrect = false };
+            quiz1.Asks.Add(ask1);
+            _ctx.SaveChanges();
 
             _ctx.Quizs.Add(quiz1);
             _ctx.SaveChanges();

@@ -8,10 +8,13 @@ namespace Tests.Models
 {
     public class Ask
     {
+        public Ask()
+        {
+            this.Answers = new List<Answer>();
+        }
         public int Id { get; set; }
-
         public string AskText { get; set; }
-        public List<Answer> Answers { get; set; }
+        public virtual List<Answer> Answers { get; set; }
         public bool isAnswerCorrect { get; set; }
     }
 }
