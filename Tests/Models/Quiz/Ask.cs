@@ -15,6 +15,6 @@ namespace Tests.Models
         public int Id { get; set; }
         public string AskText { get; set; }
         public virtual List<Answer> Answers { get; set; }
-        public bool isAnswerCorrect { get; set; }
+        public bool isAskCorrect { get; set; }
     }
 }

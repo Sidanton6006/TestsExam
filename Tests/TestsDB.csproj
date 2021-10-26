@@ -65,11 +65,16 @@
     <Compile Include="Migrations\202110161047341_AddedMoreModels.designer.cs">
       <DependentUpon>202110161047341_AddedMoreModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110261205455_Updated models, create User model.cs" />
+    <Compile Include="Migrations\202110261205455_Updated models, create User model.designer.cs">
+      <DependentUpon>202110261205455_Updated models, create User model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Answer.cs" />
-    <Compile Include="Models\Ask.cs" />
-    <Compile Include="Models\Quiz.cs" />
-    <Compile Include="Models\Test.cs" />
+    <Compile Include="Models\Auth\User.cs" />
+    <Compile Include="Models\Quiz\Answer.cs" />
+    <Compile Include="Models\Quiz\Ask.cs" />
+    <Compile Include="Models\Quiz\Quiz.cs" />
+    <Compile Include="Models\Quiz\Test.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizManager.cs" />
@@ -84,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110161047341_AddedMoreModels.resx">
       <DependentUpon>202110161047341_AddedMoreModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110261205455_Updated models, create User model.resx">
+      <DependentUpon>202110261205455_Updated models, create User model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
