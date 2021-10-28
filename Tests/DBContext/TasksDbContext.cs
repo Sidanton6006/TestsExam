@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using Tests.Models;
+using Tests.Models.Auth;
 
 namespace Tests.DBContext
 {
@@ -23,5 +24,6 @@ namespace Tests.DBContext
         public DbSet<Ask> Asks { get; set; }
         public DbSet<Quiz> Quizs { get; set; }
         public DbSet<Test> Tests { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

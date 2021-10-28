@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Tests.DBContext;
+using TestsAPI.Repository;
 
 namespace TestsAPI
 {
@@ -28,6 +30,7 @@ namespace TestsAPI
         {
 
             services.AddControllers();
+            services.AddTransient<ITestsRepository, TestsRepository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TestsAPI", Version = "v1" });

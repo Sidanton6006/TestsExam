@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TestsAPI.Repository;
 
 namespace TestsAPI.Controllers
 {
@@ -11,5 +12,8 @@ namespace TestsAPI.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+        private readonly ITestsRepository _userRepository;
+        private readonly JwtService _jwtService;
+
     }
 }
