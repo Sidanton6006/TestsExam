@@ -1,6 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
 using System.Linq;
 using Tests.Models;
 using Tests.Models.Auth;
@@ -9,14 +9,10 @@ namespace Tests.DBContext
 {
     public partial class TasksDbContext : DbContext
     {
-        public TasksDbContext()
-            : base("name=TasksDbContext")
-        {
-            Database.SetInitializer(new Initializer());
-        }
+        public TasksDbContext(DbContextOptions<TasksDbContext> options) : base(options) { }
 
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
         }
 

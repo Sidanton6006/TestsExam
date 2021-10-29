@@ -15,7 +15,10 @@ namespace TestsAPI.Repository
         {
             _ctx = ctx;
         }
-
+        public IEnumerable<User> GetAllUsers()
+        {
+            return _ctx.Users;
+        }
         public User Register(User user)
         {
             if (user == null) return null;

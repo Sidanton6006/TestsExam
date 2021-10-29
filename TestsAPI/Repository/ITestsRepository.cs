@@ -6,8 +6,9 @@ using Tests.Models.Auth;
 
 namespace TestsAPI.Repository
 {
-    interface ITestsRepository
+    public interface ITestsRepository
     {
-        public User Register(User user);
+        IEnumerable<User> GetAllUsers();
+        User Register(User user);
     }
 }

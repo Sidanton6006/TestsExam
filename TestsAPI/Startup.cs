@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -13,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Tests.DBContext;
 using TestsAPI.Repository;
+using TestsAPI.Services;
 
 namespace TestsAPI
 {
@@ -30,7 +32,12 @@ namespace TestsAPI
         {
 
             services.AddControllers();
+            services.AddTransient<JwtService>();
             services.AddTransient<ITestsRepository, TestsRepository>();
+            services.AddDbContext<TasksDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TestsAPI", Version = "v1" });

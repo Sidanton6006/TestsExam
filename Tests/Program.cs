@@ -14,7 +14,7 @@ namespace Tests
         static void Main(string[] args)
         {
             TasksDbContext _ctx = new TasksDbContext();
-            QuizManager.StartQuiz(_ctx.Quizs.Where(q => q.Id == 1).FirstOrDefault());
+            //QuizManager.StartQuiz(_ctx.Quizs.Where(q => q.Id == 1).FirstOrDefault());
         }
     }
 }
