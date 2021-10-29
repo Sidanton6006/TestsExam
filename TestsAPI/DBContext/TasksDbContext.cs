@@ -14,6 +14,7 @@ namespace Tests.DBContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<User>(entity => { entity.HasIndex(o => o.Email).IsUnique(); });
         }
 
         public DbSet<Answer> Answers { get; set; }

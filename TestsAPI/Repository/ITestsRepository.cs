@@ -10,5 +10,8 @@ namespace TestsAPI.Repository
     {
         IEnumerable<User> GetAllUsers();
         User Register(User user);
+        User GetUserByEmail(string email);
+        User GetUserById(int id);
+        bool DeleteUser(string email);
     }
 }
