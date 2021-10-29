@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Tests.DBContext;
+using Tests.Models;
 using Tests.Models.Auth;
 
 namespace TestsAPI.Repository
@@ -15,6 +16,8 @@ namespace TestsAPI.Repository
         {
             _ctx = ctx;
         }
+
+        #region Auth
         public IEnumerable<User> GetAllUsers()
         {
             return _ctx.Users;
@@ -52,5 +55,13 @@ namespace TestsAPI.Repository
             if (user == null) return null;
             return user;
         }
+        #endregion
+
+        #region Tests
+        public IEnumerable<Test> GetAllTests()
+        {
+            return _ctx.Tests;
+        }
+        #endregion
     }
 }
