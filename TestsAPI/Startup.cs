@@ -34,6 +34,10 @@ namespace TestsAPI
             services.AddControllers();
             services.AddTransient<JwtService>();
             services.AddTransient<ITestsRepository, TestsRepository>();
+            services.AddCors(options => options.AddPolicy("AllowOrigin", builder => builder
+                    .WithOrigins("https://lageniform-argument.000webhostapp.com")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()));
             services.AddDbContext<TasksDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
@@ -59,6 +63,8 @@ namespace TestsAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors("AllowOrigin");
 
             app.UseEndpoints(endpoints =>
             {

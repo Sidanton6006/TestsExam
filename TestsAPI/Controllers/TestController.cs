@@ -27,7 +27,7 @@ namespace TestsAPI.Controllers
         [HttpPost("create")]
         public IActionResult CreateTest()
         {
-
+            return Ok();
         }
     }
 }

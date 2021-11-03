@@ -1,9 +1,13 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web.Http.Cors;
 using Tests.Models.Auth;
 using TestsAPI.DTO;
 using TestsAPI.Repository;
@@ -11,6 +15,7 @@ using TestsAPI.Services;
 
 namespace TestsAPI.Controllers
 {
+    [EnableCors(origins: "https://lageniform-argument.000webhostapp.com", headers: "*",methods: "*")]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
@@ -29,17 +34,23 @@ namespace TestsAPI.Controllers
         {
             return Ok(_testRepository.GetAllUsers());
         }
+        //public Task<HttpResponseMessage> GetAllUsers()
+        //{
+        //    var res = new HttpResponseMessage(HttpStatusCode.OK);
+        //    res.Content = new StringContent("Hello world");
+        //    return Task.FromResult(res);
+        //}
+
 
         [HttpPost("register")]
-        public IActionResult Register(RegisterDTO dto)
+        public IActionResult Register([FromQuery(Name = "Name")] string Name, [FromQuery(Name = "Email")] string Email, [FromQuery(Name = "Password")] string Password)
         {
             var user = new User
             {
-                Name = dto.Name,
-                Email = dto.Email,
-                HashedPassword = BCrypt.Net.BCrypt.HashPassword(dto.Password)
+                Name = Name,
+                Email = Email,
+                HashedPassword = BCrypt.Net.BCrypt.HashPassword(Password)
             };
-
             return Created("Success", _testRepository.Register(user));
         }
 
